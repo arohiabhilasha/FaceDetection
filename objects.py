@@ -8,10 +8,17 @@ from cv2 import CascadeClassifier
 from cv2 import rectangle
 
 class Face(object):
+    
     def __init__(self, image, config):
+        '''
+        The Face Object that adds a image and recognises faces lol xD
+        '''
         self.pixels = imread(image)
         self.cascade = CascadeClassifier(config)
-    def showBoxes(self, cc,sc):
+    def showBoxes(self, cc=1.05,sc=3):
+        '''
+        Render the faces from the image lol xD
+        '''
         bboxes = self.cascade.detectMultiScale(self.pixels, cc, sc)
 
         # print bounding box for each detected face

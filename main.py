@@ -10,8 +10,5 @@ from objects import Face
 
 x = Face("image.jpg", "haarcascade_frontalface_default.xml")
 x.showBoxes(1.05,3)
-
-del x
-
 waitKey(0)
 destroyAllWindows()
