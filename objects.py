@@ -7,19 +7,6 @@ from cv2 import destroyAllWindows
 from cv2 import CascadeClassifier
 from cv2 import rectangle
 
-class Atom(object):
-    def __init__(self, name, symbol, valency):
-        self.valency = valency
-        self.name = name
-        self.symbol = symbol
-    
-    def shell(self, electrons, ss, ps, ds, fs):
-        if (ss+ps+ds+fs) > electrons:
-            return False
-        else:
-            self.shell = {"electron":electrons,"s":ss,"p":ps, "d":ds, "f":fs}
-            return self.shell
-
 class Face(object):
     def __init__(self, image, config):
         self.pixels = imread(image)
@@ -36,8 +23,3 @@ class Face(object):
             rectangle(self.pixels, (x, y), (x2, y2), (0,0,255), 1)
 
             imshow('Face detection', self.pixels)
-
-atom1 = Atom("Hydrogen", "H", 3)
-print(atom1.name)
-print(atom1.shell(6, 2, 4, 1, 0))
-print(atom1.shell)
