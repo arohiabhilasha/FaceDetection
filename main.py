@@ -8,13 +8,13 @@ from cv2 import CascadeClassifier
 from cv2 import rectangle
 
 #get the image
-pixels = imread('test2.jpg')
+pixels = imread('image.jpg')
 
 # load the cascade file
 cascade = CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # perform face detection
-bboxes = cascade.detectMultiScale(pixels, 1.05, 13)
+bboxes = cascade.detectMultiScale(pixels, 1.05, 3)
 
 # print bounding box for each detected face
 for box in bboxes:
