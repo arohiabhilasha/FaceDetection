@@ -14,7 +14,7 @@ pixels = imread('image.jpg')
 cascade = CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # perform face detection
-bboxes = cascade.detectMultiScale(pixels, 1.05, 3)
+bboxes = cascade.detectMultiScale(pixels, 1.05, 13)
 
 # print bounding box for each detected face
 for box in bboxes:
