@@ -15,9 +15,9 @@ class Face(object):
         '''
         self.pixels = imread(image)
         self.cascade = CascadeClassifier(config)
-    def showBoxes(self, cc=1.05,sc=3):
+    def renderFaces(self, cc=1.05,sc=3):
         '''
-        Render the faces from the image lol xD
+        Render the faces from the image PooP xD
         '''
         bboxes = self.cascade.detectMultiScale(self.pixels, cc, sc)
 
@@ -30,3 +30,9 @@ class Face(object):
             rectangle(self.pixels, (x, y), (x2, y2), (0,0,255), 1)
 
             imshow('Face detection', self.pixels)
+    def destroyRender(self, waitTime=0):
+        '''
+        This method should be called after renderFaces. It destroys the windows rendered by renderFaces
+        '''
+        cv2.waitKey(waitTime)
+        cv2.destroyAllWindows()
