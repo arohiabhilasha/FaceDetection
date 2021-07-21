@@ -40,3 +40,4 @@ class Face(object):
             raise RuntimeError("destroyRender called before rendering")
         cv2.waitKey(waitTime)
         cv2.destroyAllWindows()
+        self.isRenderingFaces = False
