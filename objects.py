@@ -11,13 +11,13 @@ class Face(object):
     
     def __init__(self, image, config):
         '''
-        The Face Object that adds a image and recognises faces lol xD
+        The Face Object that adds a image and recognises faces
         '''
         self.pixels = imread(image)
         self.cascade = CascadeClassifier(config)
     def renderFaces(self, cc=1.05,sc=3):
         '''
-        Render the faces from the image PooP xD
+        Render the faces from the image
         '''
         bboxes = self.cascade.detectMultiScale(self.pixels, cc, sc)
 
