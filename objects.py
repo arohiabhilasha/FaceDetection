@@ -15,6 +15,7 @@ class Face(object):
         '''
         self.pixels = imread(image)
         self.cascade = CascadeClassifier(config)
+        self.isRenderingFaces = False
     def renderFaces(self, cc=1.05,sc=3):
         '''
         Render the faces from the image
@@ -30,9 +31,12 @@ class Face(object):
             rectangle(self.pixels, (x, y), (x2, y2), (0,0,255), 1)
 
             imshow('Face detection', self.pixels)
+        self.isRenderingFaces = True
     def destroyRender(self, waitTime=0):
         '''
         This method should be called after renderFaces. It destroys the windows rendered by renderFaces
         '''
+        if self.isRenderingFaces == False:
+            raise RuntimeError("destroyRender called before rendering")
         cv2.waitKey(waitTime)
         cv2.destroyAllWindows()
